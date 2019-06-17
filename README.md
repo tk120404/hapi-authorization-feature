@@ -200,6 +200,8 @@ You must define your auth strategy before defining your routes, otherwise the ro
 * `subset` - `String`: enforce that only users that have this subset can access the route
 
 
+Thanks [toymachiner62]:https://github.com/toymachiner62/hapi-authorization
+
 [npm-badge]: https://badge.fury.io/js/hapi-authorization-feature.svg
 [npm-url]: https://badge.fury.io/js/hapi-authorization-feature
 [travis-badge]: https://travis-ci.org/tk120404/hapi-authorization-feature.svg?branch=master
