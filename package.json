@@ -1,6 +1,6 @@
 {
   "name": "hapi-authorization-feature",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ACL support for hapijs apps",
   "main": "index.js",
   "repository": {
@@ -22,10 +22,10 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
-    "boom": "^7.2.0",
-    "hoek": "^5.0.3",
-    "joi": "^13.4.0",
-    "underscore": "^1.9.1"
+   "@hapi/boom": "^7.4.2",
+   "@hapi/hoek":"^8.0.2",
+   "@hapi/joi": "^15.0.3",
+   "underscore": "^1.9.1"
   },
   "peerDependencies": {
     "hapi": ">= 18"

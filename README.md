@@ -9,7 +9,7 @@
 [![Coverage Status][coveralls-badge]][coveralls-url]
 [![Dev Dependencies][david-badge]][david-url]
 
-You can use this plugin to add ACL and protect your routes. you can configure required roles/functionalities along with features/subsets and allow access to certain endpoints only to specific users.
+You can use this plugin to add ACL and protect your routes. you can configure required roles/functions along with features/subfeatures and allow access to certain endpoints only to specific users.
 
 
 # Usage
@@ -19,7 +19,7 @@ You can use this plugin to add ACL and protect your routes. you can configure re
 There are 2 ways to use hapi-authorization-feature:
 
 1. With the default roles which are: "SUPER_ADMIN", "ADMIN", "USER", "GUEST"
-2. By defining your own roles/functionalities and features/subsets
+2. By defining your own roles/functions and features/subfeatures
 
 ## Using hapi-authorization-feature with default roles
 1. Include the plugin in your hapijs app.
@@ -52,9 +52,9 @@ let plugins = [
 		plugin: require('hapi-authorization-feature'),
 		options: {
 			roles: ['OWNER', 'MANAGER', 'EMPLOYEE'],
-			functionalities:['CREATEMANAGER','CREATEEMPLOYEE','UPDATEMANAGER','UPDATEEMPLOYEE','DELETEMANAGER','DELETEEMPLOYEE'],
+			functions:['CREATEMANAGER','CREATEEMPLOYEE','UPDATEMANAGER','UPDATEEMPLOYEE','DELETEMANAGER','DELETEEMPLOYEE'],
 			features:['OWNERMANAGEMENT','MANAGERMANAGEMENT','EMPLOYEEMANAGEMENT'],
-			subsets:['OWNERCREATION','OWNERUPDATION','OWNERDELETION']
+			subfeatures:['OWNERCREATION','OWNERUPDATION','OWNERDELETION']
 		}
 	}
 ];
@@ -67,10 +67,10 @@ If you want no routes require authorization except for the ones you specify in t
 
 Example:
 
-**Authorize a single role or functionality without feature check**
+**Authorize a single role or function without feature check**
 ```js
 server.route({ method: 'GET', path: '/', options: {
-  plugins: {'hapiAuthorizationFeature': {role: 'ADMIN',validateFeature:false, functionality: 'CREATEMANAGER'}},	// Only ADMIN role
+  plugins: {'hapiAuthorizationFeature': {role: 'ADMIN',validateFeature:false, function: 'CREATEMANAGER'}},	// Only ADMIN role
   handler: (request, h) => { return "Great!"; }
 }});
 ```
@@ -78,7 +78,7 @@ server.route({ method: 'GET', path: '/', options: {
 **Authorize multiple roles with one feature**
 ```js
 server.route({ method: 'GET', path: '/', options: {
-  plugins: {'hapiAuthorizationFeature': {roles: ['USER', 'ADMIN'],feature:'OWNERMANAGEMENT' ,functionality: 'CREATEMANAGER' }},
+  plugins: {'hapiAuthorizationFeature': {roles: ['USER', 'ADMIN'],feature:'OWNERMANAGEMENT' ,function: 'CREATEMANAGER' }},
   handler: (request, h) => { return "Great!"; }
 }});
 ```
@@ -93,7 +93,7 @@ Example:
 let server = new Hapi.server({
 	routes: {
 		plugins: {
-			hapiAuthorization: { role: 'ADMIN',  feature:'OWNERMANAGEMENT' ,functionality: 'CREATEMANAGER' ,subset:'OWNERCREATION' }
+			hapiAuthorization: { role: 'ADMIN',  feature:'OWNERMANAGEMENT' ,function: 'CREATEMANAGER' ,subfeature:'OWNERCREATION' }
 		}
 	}
 });
@@ -102,7 +102,7 @@ let server = new Hapi.server({
 **Override the authorization to require alternate roles**
 ```js
 server.route({ method: 'GET', path: '/', options: {
-  plugins: {'hapiAuthorizationFeature': {role: 'USER', feature:'USERMANAGEMENT' ,functionality: 'CREATEUSER' ,subset:'USERCREATION'}},	// Only USER role
+  plugins: {'hapiAuthorizationFeature': {role: 'USER', feature:'USERMANAGEMENT' ,function: 'CREATEUSER' ,subfeature:'USERCREATION'}},	// Only USER role
   handler: (request, h) => { return "Great!" ;}
 }});
 ```
@@ -188,16 +188,16 @@ You must define your auth strategy before defining your routes, otherwise the ro
 ## Plugin Config
 
 * `roles` - `Array|false`: All the possible roles. Defaults to `SUPER_ADMIN`, `ADMIN`, `USER`, `GUEST`. 
-* `functionalities` - `Array`: All the possible functionalities of the each roles
+* `functions` - `Array`: All the possible functions of the each roles
 * `features` - `Array`: All the possible features 
-* `subsets` - `Array`: All the possible subsets of each features
+* `subfeatures` - `Array`: All the possible subfeatures of each features
 
 
 ## Route config of supported parameters:
 * `role` - `String`: enforces that only users that have this role can access the route or
-* `functionality` - `String`: enforces that only users that have this functionality can access the route and
+* `function` - `String`: enforces that only users that have this function can access the route and
 * `feature` - `String`: enforce that only users that have this feature can access the route and
-* `subset` - `String`: enforce that only users that have this subset can access the route
+* `subfeature` - `String`: enforce that only users that have this subfeature can access the route
 
 
 Thanks [toymachiner62]:https://github.com/toymachiner62/hapi-authorization
