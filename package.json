@@ -1,40 +1,40 @@
 {
-  "name": "hapi-authorization-feature",
-  "version": "0.0.2",
-  "description": "ACL support for hapijs apps",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/tk120404/hapi-authorization-feature.git"
-  },
-  "keywords": [
-    "hapi",
-    "auth",
-    "authorization",
-    "feature"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tk120404/hapi-authorization-feature/issues"
-  },
-  "homepage": "https://github.com/tk120404/hapi-authorization-feature",
-  "engines": {
-    "node": ">=8.9.0"
-  },
-  "dependencies": {
-   "@hapi/boom": "^7.4.2",
-   "@hapi/hoek":"^8.0.2",
-   "@hapi/joi": "^15.0.3",
-   "underscore": "^1.9.1"
-  },
-  "peerDependencies": {
-    "hapi": ">= 18"
-  },
-  "directories": {
-    "lib": "lib"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "tk120404"
+    "name": "hapi-authorization-feature",
+    "version": "0.0.3",
+    "description": "ACL support for hapijs apps",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/tk120404/hapi-authorization-feature.git"
+    },
+    "keywords": [
+        "hapi",
+        "auth",
+        "authorization",
+        "feature"
+    ],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tk120404/hapi-authorization-feature/issues"
+    },
+    "homepage": "https://github.com/tk120404/hapi-authorization-feature",
+    "engines": {
+        "node": ">=8.9.0"
+    },
+    "dependencies": {
+        "@hapi/boom": "^7.4.2",
+        "@hapi/hoek": "^8.0.2",
+        "@hapi/joi": "^15.0.3",
+        "underscore": "^1.9.1"
+    },
+    "peerDependencies": {
+        "hapi": ">= 18"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "tk120404"
 }
